@@ -7,39 +7,22 @@ import random
 printmessage = "\nThe computer chose {}\n"
 
 #define the computer choice
-ComputerRandomChoice = random.randint(1,3)
-if ComputerRandomChoice == 1:
-    ComputerChoice = "Scissors"
-if ComputerRandomChoice == 2:
-    ComputerChoice = "Rock"
-if ComputerRandomChoice == 3:
-    ComputerChoice = "Paper"
+ComputerRandomChoice = random.choice(["Scissors","Rock","Paper"])
 
 #define the user choice
 UserChoice = input("What do you choose?\n")
 
 #display the computer's choice]
-print(printmessage.format(ComputerChoice))
+print(printmessage.format(ComputerRandomChoice))
 
 #compute the game logic and display the result
-if UserChoice=="Scissors":
-    if ComputerChoice == "Scissors":
+if UserChoice == ComputerRandomChoice:    
         print("The match is a tie\n")
-    elif ComputerChoice == "Rock":            
-        print("You Lost\n")
-    elif ComputerChoice == "Paper":            
-        print("You Won\n")
-elif UserChoice=="Rock":
-    if ComputerChoice == "Scissors":
-        print("You won\n")
-    elif ComputerChoice == "Rock":            
-        print("The match is a tie\n")
-    elif ComputerChoice == "Paper":            
+elif UserChoice == "Scissors" and ComputerRandomChoice == "Paper":            
+        print("You Win\n")
+elif UserChoice == "Rock" and ComputerRandomChoice == "Scissors":            
+        print("You Win\n")
+elif UserChoice=="Paper" and ComputerRandomChoice == "Rock":    
+        print("You Win\n")
+else:    
         print("You lost\n")
-elif UserChoice=="Paper":
-    if ComputerChoice == "Scissors":
-        print("You lost\n")
-    elif ComputerChoice == "Rock":            
-        print("You won\n")
-    elif ComputerChoice == "Paper":            
-        print("The match is a tie\n")
